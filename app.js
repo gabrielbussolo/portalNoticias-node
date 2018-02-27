@@ -1,16 +1,13 @@
 const app = require('./config/server') //importando o app aqui
 
-//definindo as rodas da aplicacao
-app.get('/', (requisicao, resposta) => {
-    resposta.render('home/index') //em vez de .send, se usa .render (render acho que é do EJS)
-})
-app.get('/formulario_add_noticia', (requisicao, resposta) => {
-    resposta.render('admin/form_add_noticia')
-})
-app.get('/noticias', (requisicao, resposta) => {
-    resposta.render('noticias/noticias')
-})
+//definindo as rodas da aplicacao, recebo as rotas, jogo elas numa variavel, e executo ela logo apos, (isso me lembra um php include, só pr aincluir um pedaco de codigo)
+
+let rotaHome = require('./app/routes/home')(app)// posso executar assim
+let rotaFormInclusao = require('./app/routes/formulario_inclusao_noticia')
+rotaFormInclusao(app) //ou assim
+let rotaNoticias = require('./app/routes/noticias')(app)
+
 
 app.listen(3000,() => {
-    console.log('Servidor rodando com express')
+    console.log('SERVIDOR ON!')
 })
