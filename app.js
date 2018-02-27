@@ -1,9 +1,6 @@
-const express = require('express')
-const app = express() //passo executando
+const app = require('./config/server') //importando o app aqui
 
-app.set('view engine', 'ejs') //definindo ejs como gerador das paginas
-
-//rotas
+//definindo as rodas da aplicacao
 app.get('/', (requisicao, resposta) => {
     resposta.render('home/index') //em vez de .send, se usa .render (render acho que é do EJS)
 })
