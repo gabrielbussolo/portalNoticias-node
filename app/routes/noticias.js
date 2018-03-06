@@ -1,4 +1,4 @@
-const dbConnection = require('../../config/dbconnection')
+//const dbConnection = require('../../config/dbconnection')
 
 module.exports = app => {
     app.get('/noticias', (requisicao, resposta) => {
@@ -9,9 +9,6 @@ module.exports = app => {
                 console.log(erro)
             }
             resposta.render('noticias/noticias', {noticias : resultado})
-
         })
-
-        //resposta.render('noticias/noticias')
     })
 }
