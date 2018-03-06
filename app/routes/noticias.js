@@ -13,7 +13,7 @@ module.exports = app => {
             if(erro){
                 console.log(erro)
             }
-            resposta.send(resultado)
+            resposta.render('noticias/noticias', {noticias : resultado})
 
         })
 
