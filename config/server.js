@@ -10,6 +10,7 @@ app.set('views', './app/views') //definindo caminho das views
 consign()
     .include('app/routes')//inclua isso
     .then('config/dbconnection.js')// e isso
+    .then('app/models') // incluindomodels
     .into(app) // nisso
 //pronto as rotas sao carregadas automaticamente
 
